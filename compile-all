@@ -124,6 +124,11 @@ if ! $USING_GCC; then
     export cc_flags="-fblocks -fobjc-nonfragile-abi ${cc_flags}"
 fi
 
+# Setup clang specific libraries...
+if ! $USING_GCC; then
+    ${scriptsdir}/clang-setup "$CLANG" "$CLANGPP"
+fi
+
 # Install make
 echo "Installing GNUstep into ${prefix}"
 cd tools-make
@@ -158,11 +163,6 @@ else
     $MAKE install
 fi 
 . $prefix/System/Library/Makefiles/GNUstep.sh
-
-# Setup clang specific libraries...
-if ! $USING_GCC; then
-    ${scriptsdir}/clang-setup "$CLANG" "$CLANGPP"
-fi
 
 # Install base
 echo "======== Installing Base..."
