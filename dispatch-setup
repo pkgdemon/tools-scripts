@@ -36,6 +36,14 @@ cmake ../ \
   -DCMAKE_ASM_COMPILER="${CC}" \
   -DCMAKE_LINKER="${LD}" \
   -DCMAKE_MODULE_LINKER_FLAGS="${LDFLAGS}" \
+  -DCMAKE_INSTALL_PREFIX="/usr/GNUstep/System" \
+  -DCMAKE_INSTALL_BINDIR="/usr/GNUstep/System/Tools" \
+  -DCMAKE_INSTALL_LIBDIR="/usr/GNUstep/System/Library/Libraries" \
+  -DCMAKE_INSTALL_INCLUDEDIR="/usr/GNUstep/System/Library/Headers" \
+  -DCMAKE_INSTALL_MANDIR="/usr/GNUstep/System/Library/Documentation/man" \
+  -DCMAKE_INSTALL_INFODIR="/usr/GNUstep/System/Library/Documentation/info" \
+  -DCMAKE_INSTALL_DOCDIR="/usr/GNUstep/System/Library/Documentation" \
+  -DCMAKE_INSTALL_DATAROOTDIR="/usr/GNUstep/System/Library" \
   -DTESTS=OFF
 make -j${CPUS}
 ${SUDO} -E make install && ${SUDO} ldconfig
